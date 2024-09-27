@@ -1,4 +1,3 @@
-// Video.java
 public class Video extends ElementoMultimediale implements Riproducibile {
     private final int durata;
     private int volume;
