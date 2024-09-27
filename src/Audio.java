@@ -1,3 +1,4 @@
+// Audio.java
 public class Audio extends ElementoMultimediale implements Riproducibile {
     private int durata;
     private int volume;
@@ -5,15 +6,19 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     public Audio(String titolo, int durata, int volume) {
         super(titolo);
         this.durata = durata;
-        this.volume = volume;
+        this.volume = Math.max(0, Math.min(volume, 10)); // Assicura che il volume sia nel range 0-10
     }
 
     public void alzaVolume() {
-        volume++;
+        if (volume < 10) {
+            volume++;
+        }
     }
 
     public void abbassaVolume() {
-        if (volume > 0) volume--;
+        if (volume > 0) {
+            volume--;
+        }
     }
 
     @Override
@@ -23,8 +28,12 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
 
     @Override
     public void play() {
+        // Stampa il titolo una sola volta
+        System.out.println(getTitolo());
+
+        // Stampa la sequenza di punti esclamativi un numero di volte pari alla durata
         for (int i = 0; i < durata; i++) {
-            System.out.println(titolo + " " + "!".repeat(volume));
+            System.out.println(" " + "!".repeat(volume));
         }
     }
 
@@ -33,3 +42,4 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
         play();
     }
 }
+
