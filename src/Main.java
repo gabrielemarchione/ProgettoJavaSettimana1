@@ -34,12 +34,12 @@ public class Main {
                 elementi[i] = new Immagine(titolo, luminosita);
             } else if (tipo == 2) {
                 // Richiedi la durata direttamente in secondi
-                int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ", 1, Integer.MAX_VALUE);
+                int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ( p.s: consiglio di inserire da 1 a 10 sennò diventa molto lunga la stampa) ", 1, Integer.MAX_VALUE);
                 int volume = leggiValoreIntero(scanner, "Inserisci il volume (0-10): ", 0, 10);
                 elementi[i] = new Audio(titolo, durata, volume);
             } else {
                 // Richiedi la durata direttamente in secondi
-                int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ", 1, Integer.MAX_VALUE);
+                int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ( p.s: consiglio di inserire da 1 a 10 sennò diventa molto lunga la stampa) ", 1, Integer.MAX_VALUE);
                 int volume = leggiValoreIntero(scanner, "Inserisci il volume (0-10): ", 0, 10);
                 int luminosita = leggiValoreIntero(scanner, "Inserisci la luminosità (0-10): ", 0, 10);
                 elementi[i] = new Video(titolo, durata, volume, luminosita);
