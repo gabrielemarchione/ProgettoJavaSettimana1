@@ -1,4 +1,3 @@
-// Audio.java
 public class Audio extends ElementoMultimediale implements Riproducibile {
     private final int durata;
     private int volume;
