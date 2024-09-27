@@ -1,6 +1,6 @@
 // Audio.java
 public class Audio extends ElementoMultimediale implements Riproducibile {
-    private int durata;
+    private final int durata;
     private int volume;
 
     public Audio(String titolo, int durata, int volume) {

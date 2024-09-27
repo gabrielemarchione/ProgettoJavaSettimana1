@@ -37,7 +37,7 @@ public class Main {
                 int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ", 1, Integer.MAX_VALUE);
                 int volume = leggiValoreIntero(scanner, "Inserisci il volume (0-10): ", 0, 10);
                 elementi[i] = new Audio(titolo, durata, volume);
-            } else if (tipo == 3) {
+            } else {
                 // Richiedi la durata direttamente in secondi
                 int durata = leggiValoreIntero(scanner, "Inserisci la durata (in secondi): ", 1, Integer.MAX_VALUE);
                 int volume = leggiValoreIntero(scanner, "Inserisci il volume (0-10): ", 0, 10);
@@ -59,8 +59,7 @@ public class Main {
                     if (elemento != null) {
                         System.out.println("Titolo dell'elemento: " + elemento.getTitolo());
 
-                        if (elemento instanceof Immagine) {
-                            Immagine immagine = (Immagine) elemento;
+                        if (elemento instanceof Immagine immagine) {
 
                             // Chiedi se l'utente vuole regolare la luminosità
                             int regolaLuminosita = leggiValoreIntero(scanner, "Vuoi regolare la luminosità? (1: Aumenta, 2: Diminuisci, 0: No): ", 0, 2);
@@ -73,23 +72,20 @@ public class Main {
                             // Mostra l'immagine con la luminosità attuale
                             immagine.esegui();
 
-                        } else if (elemento instanceof Riproducibile) {
-                            Riproducibile riproducibile = (Riproducibile) elemento;
+                        } else if (elemento instanceof Riproducibile riproducibile) {
 
                             // Stampa la durata dell'elemento
                             System.out.println("Durata dell'elemento: " + riproducibile.getDurata() + " secondi");
 
                             // Regola il volume o la luminosità se è un video
-                            if (elemento instanceof Audio) {
-                                Audio audio = (Audio) elemento;
+                            if (elemento instanceof Audio audio) {
                                 int regolaVolume = leggiValoreIntero(scanner, "Vuoi regolare il volume? (1: Alza, 2: Abbassa, 0: No): ", 0, 2);
                                 if (regolaVolume == 1) {
                                     audio.alzaVolume();
                                 } else if (regolaVolume == 2) {
                                     audio.abbassaVolume();
                                 }
-                            } else if (elemento instanceof Video) {
-                                Video video = (Video) elemento;
+                            } else if (elemento instanceof Video video) {
                                 int regolaVolume = leggiValoreIntero(scanner, "Vuoi regolare il volume? (1: Alza, 2: Abbassa, 0: No): ", 0, 2);
                                 if (regolaVolume == 1) {
                                     video.alzaVolume();
